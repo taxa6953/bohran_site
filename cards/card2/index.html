@@ -65,7 +65,7 @@
   <!-- ذخیره امتیاز در localStorage -->
   <script>
     window.addEventListener("DOMContentLoaded", () => {
-      const savedRating = localStorage.getItem("card1_rating");
+      const savedRating = localStorage.getItem("card2_rating");
       if (savedRating) {
         document.getElementById("rate" + savedRating).checked = true;
       }
@@ -73,7 +73,7 @@
       const radios = document.querySelectorAll('input[name="rating"]');
       radios.forEach(radio => {
         radio.addEventListener("change", () => {
-          localStorage.setItem("card1_rating", radio.value);
+          localStorage.setItem("card2_rating", radio.value);
           alert("امتیاز شما ثبت شد: " + radio.value);
         });
       });
