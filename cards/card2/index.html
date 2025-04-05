@@ -1,86 +1,84 @@
 <!DOCTYPE html>
 <html lang="fa" dir="rtl">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>کارت شماره ۲</title>
-  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>کارت شماره یک</title>
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+  <style>
+    .star-rating input {
+      display: none;
+    }
+    .star-rating label {
+      font-size: 1.5rem;
+      color: #888;
+      cursor: pointer;
+    }
+    .star-rating input:checked ~ label,
+    .star-rating label:hover,
+    .star-rating label:hover ~ label {
+      color: gold;
+    }
+  </style>
 </head>
-<body class="bg-white text-white min-h-screen p-4">
+<body class="bg-white text-gray-800 min-h-screen p-4">
 
   <!-- دکمه بازگشت -->
   <div class="mb-6">
-    <a href="../index.html" class="inline-flex items-center justify-center w-12 h-12 rounded-full bg-gray-500 hover:bg-gray-600 transition shadow-md">
-      <img src="back-icon.png" alt="بازگشت" class="w-12 h-12 object-contain rounded-full">
+    <a href="../../index.html" class="inline-flex items-center justify-center w-12 h-12 rounded-full bg-gray-500 hover:bg-gray-600 transition shadow-md">
+      <img src="back-icon.png" alt="بازگشت" class="w-12 h-12 object-contain">
     </a>
   </div>
 
   <!-- کارت -->
-  <div class="bg-gray-800 rounded-2xl shadow-xl overflow-hidden max-w-xl mx-auto">
+  <div class="bg-gray-200 rounded-3xl shadow-2xl max-w-xl mx-auto overflow-hidden">
+    <!-- عکس اصلی -->
+    <img src="image1.jpeg" alt="" class="w-full h-96 object-cover">
 
-    <!-- تصویر اصلی -->
-    <img src="image2.jpg" alt="عکس اصلی" class="w-full h-96 object-cover" />
-
-    <!-- محتوای کارت -->
+    <!-- محتوا -->
     <div class="p-6">
-      <!-- عنوان و رأی‌گیری -->
-      <div class="flex items-center justify-between mb-2">
-        <h2 class="text-2xl font-bold text-white">عنوان کارت شماره ۲</h2>
-        <!-- ستاره‌ها -->
-        <div class="flex space-x-1 rtl:space-x-reverse" id="rating">
-          <input type="radio" name="rate" id="rate5" value="5"><label for="rate5">★</label>
-          <input type="radio" name="rate" id="rate4" value="4"><label for="rate4">★</label>
-          <input type="radio" name="rate" id="rate3" value="3"><label for="rate3">★</label>
-          <input type="radio" name="rate" id="rate2" value="2"><label for="rate2">★</label>
-          <input type="radio" name="rate" id="rate1" value="1"><label for="rate1">★</label>
+      <!-- عنوان و رأی -->
+      <div class="flex justify-between items-center mb-3">
+        <h1 class="text-2xl font-bold text-gray-900">عنوان کارت شماره یک</h1>
+        <div class="star-rating flex space-x-1 rtl:space-x-reverse" id="rating">
+          <input type="radio" name="rating" id="rate5" value="5"><label for="rate5">★</label>
+          <input type="radio" name="rating" id="rate4" value="4"><label for="rate4">★</label>
+          <input type="radio" name="rating" id="rate3" value="3"><label for="rate3">★</label>
+          <input type="radio" name="rating" id="rate2" value="2"><label for="rate2">★</label>
+          <input type="radio" name="rating" id="rate1" value="1"><label for="rate1">★</label>
         </div>
       </div>
 
       <!-- توضیح -->
-      <p class="text-gray-300 mb-4">
-        این یک توضیح کوتاه برای کارت شماره ۲ است. می‌توانید این متن را با محتوای دلخواه جایگزین کنید.
+      <p class="text-sm text-gray-700 mb-6">
+        این یک توضیح کوتاه درباره محتوای کارت شماره یک است که در اینجا نوشته می‌شود.
       </p>
 
-      <!-- پخش‌کننده موزیک -->
-      <audio controls class="w-full mt-4">
-        <source src="voice2.mp3" type="audio/mpeg">
-        مرورگر شما از پخش‌کننده صوتی پشتیبانی نمی‌کند.
+      <!-- پخش‌کننده صوت -->
+      <audio controls class="w-full">
+        <source src="voice1.mp3" type="audio/mpeg">
+        مرورگر شما از پخش فایل صوتی پشتیبانی نمی‌کند.
       </audio>
     </div>
   </div>
 
-  <!-- ثبت رأی در localStorage -->
+  <!-- ذخیره امتیاز در localStorage -->
   <script>
     window.addEventListener("DOMContentLoaded", () => {
-      const savedRating = localStorage.getItem("card2_rating");
+      const savedRating = localStorage.getItem("card1_rating");
       if (savedRating) {
         document.getElementById("rate" + savedRating).checked = true;
       }
 
-      const radios = document.querySelectorAll('input[name="rate"]');
+      const radios = document.querySelectorAll('input[name="rating"]');
       radios.forEach(radio => {
         radio.addEventListener("change", () => {
-          localStorage.setItem("card2_rating", radio.value);
+          localStorage.setItem("card1_rating", radio.value);
           alert("امتیاز شما ثبت شد: " + radio.value);
         });
       });
     });
   </script>
-
-  <!-- استایل ستاره‌ها -->
-  <style>
-    input[type="radio"] {
-      display: none;
-    }
-    label {
-      font-size: 24px;
-      color: lightgray;
-      cursor: pointer;
-    }
-    input[type="radio"]:checked ~ label {
-      color: gold;
-    }
-  </style>
 
 </body>
 </html>
