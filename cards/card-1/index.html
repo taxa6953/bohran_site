@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Black Spaghetti with Prawns</title>
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+  <style>
+    .apple-player {
+      backdrop-filter: blur(10px);
+      background: rgba(255, 255, 255, 0.3);
+    }
+    .star-rating input {
+      display: none;
+    }
+    .star-rating label {
+      font-size: 1.5rem;
+      color: #ccc;
+      cursor: pointer;
+    }
+    .star-rating input:checked ~ label,
+    .star-rating label:hover,
+    .star-rating label:hover ~ label {
+      color: gold;
+    }
+  </style>
+</head>
+<body class="bg-gray-900 text-white p-4">
+  <div class="max-w-md mx-auto bg-gray-800 rounded-3xl p-4 shadow-lg">
+    <img src="image1.jpg" alt="Black Spaghetti" class="rounded-2xl mb-4">
+
+    <div class="text-xl font-bold mb-2">Black Spaghetti with Prawns & Herbs <span class="text-yellow-400 text-sm">★ 4.5</span></div>
+
+    <p class="text-sm text-gray-300 mb-4">
+      Black Spaghetti with Prawns & Herbs is a nutritious and flavorful dish made with...
+    </p>
+
+    <h3 class="font-semibold text-lg mb-2">Ingredients</h3>
+    <ul class="list-disc list-inside text-sm text-gray-300 mb-4">
+      <li>Black spaghetti</li>
+      <li>Prawns</li>
+      <li>Fresh herbs</li>
+      <li>Olive oil</li>
+    </ul>
+
+    <!-- Apple-style Audio Player -->
+    <div class="apple-player rounded-2xl p-4 text-black mb-6">
+      <audio controls class="w-full">
+        <source src="voice1.mp3" type="audio/mpeg">
+        Your browser does not support the audio element.
+      </audio>
+    </div>
+
+    <!-- Profile -->
+    <div class="flex items-center mb-4">
+      <img src="avatar1.png" alt="Profile" class="w-10 h-10 rounded-full mr-3">
+      <span class="text-sm text-gray-300">Chef John Doe</span>
+    </div>
+
+    <!-- Star Rating -->
+    <div class="star-rating flex justify-center space-x-1">
+      <input type="radio" name="rating" id="rate5"><label for="rate5">★</label>
+      <input type="radio" name="rating" id="rate4"><label for="rate4">★</label>
+      <input type="radio" name="rating" id="rate3"><label for="rate3">★</label>
+      <input type="radio" name="rating" id="rate2"><label for="rate2">★</label>
+      <input type="radio" name="rating" id="rate1"><label for="rate1">★</label>
+    </div>
+  </div>
+</body>
+</html>
