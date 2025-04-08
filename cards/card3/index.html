@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>زلزله چگونه در جهان رخ می دهد</title>
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+  <style>
+    .star-rating input {
+      display: none;
+    }
+    .star-rating label {
+      font-size: 1.5rem;
+      color: #888;
+      cursor: pointer;
+    }
+    .star-rating input:checked ~ label,
+    .star-rating label:hover,
+    .star-rating label:hover ~ label {
+      color: gold;
+    }
+  </style>
+</head>
+<body class="bg-white text-gray-800 min-h-screen p-4">
+
+  <!-- دکمه بازگشت -->
+  <div class="mb-6">
+    <a href="../../index.html" class="inline-flex items-center justify-center w-12 h-12 rounded-full bg-gray-500 hover:bg-gray-600 transition shadow-md">
+      <img src="back-icon.png" alt="بازگشت" class="w-12 h-12 object-contain">
+    </a>
+  </div>
+
+  <!-- کارت -->
+  <div class="bg-gray-200 rounded-3xl shadow-2xl max-w-xl mx-auto overflow-hidden">
+    <!-- ویدیو به جای عکس -->
+    <video controls class="w-full h-96 object-cover">
+      <source src="voice3.mp4" type="video/mp4">
+      مرورگر شما از پخش ویدیو پشتیبانی نمی‌کند.
+    </video>
+
+    <!-- محتوا -->
+    <div class="p-6">
+      <!-- عنوان و رأی -->
+      <div class="flex justify-between items-center mb-3">
+        <h1 class="text-2xl font-bold text-gray-900">عنوان کارت شماره دو</h1>
+        <div class="star-rating flex space-x-1 rtl:space-x-reverse" id="rating">
+          <input type="radio" name="rating" id="rate5" value="5"><label for="rate5">★</label>
+          <input type="radio" name="rating" id="rate4" value="4"><label for="rate4">★</label>
+          <input type="radio" name="rating" id="rate3" value="3"><label for="rate3">★</label>
+          <input type="radio" name="rating" id="rate2" value="2"><label for="rate2">★</label>
+          <input type="radio" name="rating" id="rate1" value="1"><label for="rate1">★</label>
+        </div>
+      </div>
+
+      <!-- توضیح -->
+      <p class="text-sm text-gray-700 mb-6">
+        این یک توضیح کوتاه درباره محتوای کارت شماره دو است که در اینجا نوشته می‌شود.
+      </p>
+    </div>
+  </div>
+
+  <!-- ذخیره امتیاز در localStorage -->
+  <script>
+    window.addEventListener("DOMContentLoaded", () => {
+      const savedRating = localStorage.getItem("card3_rating");
+      if (savedRating) {
+        document.getElementById("rate" + savedRating).checked = true;
+      }
+
+      const radios = document.querySelectorAll('input[name="rating"]');
+      radios.forEach(radio => {
+        radio.addEventListener("change", () => {
+          localStorage.setItem("card3_rating", radio.value);
+          alert("امتیاز شما ثبت شد: " + radio.value);
+        });
+      });
+    });
+  </script>
+
+</body>
+</html>
